@@ -3,7 +3,7 @@
 Esto va a servir para mi clase 
 - Julio Cesar Mejia Garcia
 - 220398841
-- clasificacion por material (madera, metal, plastico)
+- clasificacion por tamano (chico, mediano, grande)
 
 ## Descripción
 
