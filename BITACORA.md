@@ -6,7 +6,7 @@
 Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas necesarias para realizar las actividades, se busca realizar las cosas de manera eficaz utilizando material adquirido, se configuraron los entornos y todo lo que se necesita
 
 - ¿Cuál es la diferencia entre programar la regla y aprender la regla? 
-Un ejemplo tuyo, no el de la guía.Es de codigo que uno le pone y el otro de como de que aprende
+Es de codigo que uno le pone y el otro de como de que aprende
 - ¿Cuál es tu dominio y cuáles son tus tres tipos de pieza?
 Clasificacion por estado (Buena, Marcaada, Deforme)
 - Describe el bucle de control de tu sistema: qué mide tu sensor, qué tiene que decidir el modelo y qué haría el actuador con cada uno de tus tres tipos.
