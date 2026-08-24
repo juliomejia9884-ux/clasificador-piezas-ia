@@ -14,3 +14,11 @@ Este es el procedimiento para hacer push:
 - Luego hago git add .
 - Luego git commit
 - Luego git push
+
+### Antes de la clase, responde con tus palabras:
+- ¿Cuál es la diferencia entre programar la regla y aprender la regla? Un ejemplo tuyo, no el de la guía.
+Es de codigo que uno le pone y el otro de como de que aprende
+- ¿Cuál es tu dominio y cuáles son tus tres tipos de pieza?
+Clasificacion por estado (Buena, Marcaada, Deforme)
+- Describe el bucle de control de tu sistema: qué mide tu sensor, qué tiene que decidir el modelo y qué haría el actuador con cada uno de tus tres tipos.
+El sensor TCRT5000 medirá la cantidad de luz que refleja la superficie de cada pieza. El modelo analizará esas lecturas y decidirá si la pieza está buena, marcada o deforme. Después se separara
