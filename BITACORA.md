@@ -2,15 +2,15 @@
 
 ### Antes de la clase
 
-(aquí van los entregables de los bloques del lunes)
+(Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas necesarias para realizar las actividades, se busca realizar las cosas de manera eficaz utilizando material adquirido, se configuraron los entornos y todo lo que se necesita)
 
 ### Avance del proyecto
 
-(aquí va lo que le agregaste a tu sistema)
+(Se comenzo con todo lo que tenemos que ver para crear carpetas, guardarlas de forma segura, lo commit y guardar.)
 
-prueba agregar
+Prueba agregar
 Este es el procedimiento para hacer push:
 - Para hacer push primero edito
-- Luego hago git add
+- Luego hago git add .
 - Luego git commit
 - Luego git push
