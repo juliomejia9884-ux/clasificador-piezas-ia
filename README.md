@@ -3,7 +3,7 @@
 Esto va a servir para mi clase 
 - Julio Cesar Mejia Garcia
 - 220398841
-- clasificacion por estado (buena, marcada, deforme)
+- Clasificacion por tamaño (Chico, Mediano, Grande)
 
 ## Descripción
 
