@@ -20,7 +20,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 3. Por qué el Arduino no puede mandar Serial.println("Leyendo...").
  - El Arduino no puede mandar solo Serial.println("Leyendo...") porque el modelo necesita datos numéricos del sensor para poder analizar la distancia y clasificar la pieza como chica, mediana o grande.
 
- #S2 BLOQUE2
+## S2 BLOQUE2
 1. ¿Cuánto tarda tu pieza en cruzar frente al sensor?
 - Aproximadamente 1 segundo.
 2. ¿Qué delay() eliges para tener al menos 20 muestras del evento?
@@ -28,6 +28,17 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 1000 ms ÷ 50 ms = 20 muestras.
 3. ¿Cuántas muestras te da eso mientras la pieza pasa?
 - Me da aproximadamente 20 muestras mientras la pieza cruza frente al sensor.b
+## SEMANA 3 BLOQUE1
+1. Las columnas exactas de tu datos.csv, con el nombre de cada una y qué guarda.
+- Tres
+2. Tus tres etiquetas, escritas tal como van a aparecer en el archivo (una palabra, minúsculas, sin acentos).
+- Chico Mediano Grande
+3. Cinco filas de ejemplo de tu tabla, con valores plausibles para tu sensor.
+- 5.2,chico
+- 6.1,chico
+- 10.4,mediano
+- 11.2,mediano
+- 16.5,grande
 
 ### Avance del proyecto
 
