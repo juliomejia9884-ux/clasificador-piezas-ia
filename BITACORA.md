@@ -40,6 +40,15 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 - 11.2,mediano
 - 16.5,grande
 
+## SEMANA 3 BLOQUE1
+1. Cuántas ventanas por clase vas a capturar.
+- Capturaré 30 ventanas por cada clase, para un total de 90 ventanas. Las clases serán chico, mediano y grande.
+2. En qué orden.
+- chico, mediano, grande, y repetiré el orden hasta completar las 30 ventanas de cada clase.
+3. Cómo vas a mantener pareja la velocidad de la mano, en concreto: qué vas a marcar, medir o fijar.
+- Marcaré un punto de inicio y uno de final en la mesa, usando siempre el mismo recorrido. Intentaré mantener una velocidad aproximada de un segundo por recorrido.
+4. A qué distancia del sensor va a pasar la pieza.
+ - Mantendré la pieza aproximadamente a 5 cm del sensor HC-SR04 durante el recorrido, utilizando una guía para mantener una posición constante.
 ### Avance del proyecto
 
 Se comenzo con todo lo que tenemos que ver para crear carpetas, guardarlas de forma segura, lo commit y guardar.
