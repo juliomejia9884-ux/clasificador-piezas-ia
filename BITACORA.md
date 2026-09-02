@@ -40,7 +40,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 - 11.2,mediano
 - 16.5,grande
 
-## SEMANA 3 BLOQUE1
+## SEMANA 3 BLOQUE2
 1. Cuántas ventanas por clase vas a capturar.
 - Capturaré 30 ventanas por cada clase, para un total de 90 ventanas. Las clases serán chico, mediano y grande.
 2. En qué orden.
