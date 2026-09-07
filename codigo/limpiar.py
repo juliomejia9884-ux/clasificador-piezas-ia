@@ -4,7 +4,7 @@ import pandas as pd
 datos = pd.read_csv('datos/datos.csv')
 
 # 1. Quitar valores fuera del rango físico del sensor ultrasónico
-# HC-SR04: aproximadamente 2 a 400 cm
+# HC-SR04: aproximadamente 2 a 400 centimetros
 datos = datos[(datos['valor'] >= 2) & (datos['valor'] <= 400)]
 
 # 2. Aplicar filtro de media móvil por ventana
