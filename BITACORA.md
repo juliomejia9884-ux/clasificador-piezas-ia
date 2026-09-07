@@ -20,7 +20,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 3. Por qué el Arduino no puede mandar Serial.println("Leyendo...").
  - El Arduino no puede mandar solo Serial.println("Leyendo...") porque el modelo necesita datos numéricos del sensor para poder analizar la distancia y clasificar la pieza como chica, mediana o grande.
 
-## S2 BLOQUE2
+## SEMANA 2 BLOQUE 2
 1. ¿Cuánto tarda tu pieza en cruzar frente al sensor?
 - Aproximadamente 1 segundo.
 2. ¿Qué delay() eliges para tener al menos 20 muestras del evento?
@@ -28,7 +28,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 1000 ms ÷ 50 ms = 20 muestras.
 3. ¿Cuántas muestras te da eso mientras la pieza pasa?
 - Me da aproximadamente 20 muestras mientras la pieza cruza frente al sensor.b
-## SEMANA 3 BLOQUE1
+## SEMANA 3 BLOQUE 1
 1. Las columnas exactas de tu datos.csv, con el nombre de cada una y qué guarda.
 - Tres
 2. Tus tres etiquetas, escritas tal como van a aparecer en el archivo (una palabra, minúsculas, sin acentos).
@@ -40,7 +40,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 - 11.2,mediano
 - 16.5,grande
 
-## SEMANA 3 BLOQUE2
+## SEMANA 3 BLOQUE 2
 1. Cuántas ventanas por clase vas a capturar.
 - Capturaré 30 ventanas por cada clase, para un total de 90 ventanas. Las clases serán chico, mediano y grande.
 2. En qué orden.
@@ -48,7 +48,18 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 3. Cómo vas a mantener pareja la velocidad de la mano, en concreto: qué vas a marcar, medir o fijar.
 - Marcaré un punto de inicio y uno de final en la mesa, usando siempre el mismo recorrido. Intentaré mantener una velocidad aproximada de un segundo por recorrido.
 4. A qué distancia del sensor va a pasar la pieza.
- - Mantendré la pieza aproximadamente a 5 cm del sensor HC-SR04 durante el recorrido, utilizando una guía para mantener una posición constante.
+- Mantendré la pieza aproximadamente a 5 cm del sensor HC-SR04 durante el recorrido, utilizando una guía para mantener una posición constante.
+
+## SEMANA 4 BLOQUE 1
+1. Qué tipo de ruido ves en tu señal y de dónde crees que viene.
+- Se observa principalmente ruido aleatorio o pequeñas variaciones en la señal. Puede venir de cambios en la medición del sensor ultrasónico, objetos que reflejan el sonido, interferencias o pequeñas variaciones en el tiempo de lectura.
+2. Qué rango físico tiene tu sensor y qué valores estás descartando por imposibles.
+- El sensor ultrasónico HC-SR04 tiene un rango aproximado de 2 a 400 cm. Por eso se descartan los valores menores a 2 cm y mayores a 400 cm, ya que están fuera de su rango de medición.
+3. Qué tamaño de filtro elegiste y por qué, en relación con la duración de tu evento.
+- Elegí un filtro de media móvil de 5 muestras porque permite reducir el ruido de la señal sin afectar demasiado los cambios del evento. El tamaño del filtro es pequeño en comparación con la duración del evento, por lo que conserva sus características principales.
+
+## SEMANA 4 BLOQUE 2
+
 ### Avance del proyecto
 
 Se comenzo con todo lo que tenemos que ver para crear carpetas, guardarlas de forma segura, lo commit y guardar.
