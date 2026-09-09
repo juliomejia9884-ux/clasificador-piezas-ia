@@ -44,7 +44,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 - 11.2,mediano
 - 16.5,grande
 
-## BLOQUE 2
+### BLOQUE 2
 1. Cuántas ventanas por clase vas a capturar.
 - Capturaré 30 ventanas por cada clase, para un total de 90 ventanas. Las clases serán chico, mediano y grande.
 2. En qué orden.
@@ -63,7 +63,8 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 3. Qué tamaño de filtro elegiste y por qué, en relación con la duración de tu evento.
 - Elegí un filtro de media móvil de 5 muestras porque permite reducir el ruido de la señal sin afectar demasiado los cambios del evento. El tamaño del filtro es pequeño en comparación con la duración del evento, por lo que conserva sus características principales.
 
-## SEMANA 4 BLOQUE 2
+### BLOQUE 2
+
 
 ### Avance del proyecto
 
