@@ -1,5 +1,5 @@
 # Bitacora del Proyecto
-## Semana 1 - Encuadre y configuración del entorno
+## SEMANA 1 - Encuadre y configuración del entorno
 
 ### Antes de la clase
 
@@ -11,6 +11,9 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 - Clasificacion por tamaño (Chico, Mediano, Grande)
 3. Describe el bucle de control de tu sistema: qué mide tu sensor, qué tiene que decidir el modelo y qué haría el actuador con cada uno de tus tres tipos.
 - El HC-SR04 mide la distancia entre el sensor y la pieza. El modelo analiza esa medida para decidir si la pieza es Chica, Mediana o Grande.Después, el actuador realiza una acción diferente para cada tamaño: Chica → la desvía al área 1, Mediana → al área 2 y Grande → al área 3.
+
+## SEMANA 2 
+### BLOQUE 1
 1. ¿Qué sensor vas a usar y qué tipo de salida tiene?
  - HC-SR04, sensor ultrasónico que tiene una salida digital, cuyo tiempo permite calcular la distancia.
 2. Tres líneas de ejemplo tal como se van a ver saliendo de tu Arduino, con valores plausibles para tu caso.
@@ -20,7 +23,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 3. Por qué el Arduino no puede mandar Serial.println("Leyendo...").
  - El Arduino no puede mandar solo Serial.println("Leyendo...") porque el modelo necesita datos numéricos del sensor para poder analizar la distancia y clasificar la pieza como chica, mediana o grande.
 
-## SEMANA 2 BLOQUE 2
+###  BLOQUE 2
 1. ¿Cuánto tarda tu pieza en cruzar frente al sensor?
 - Aproximadamente 1 segundo.
 2. ¿Qué delay() eliges para tener al menos 20 muestras del evento?
@@ -28,7 +31,8 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 1000 ms ÷ 50 ms = 20 muestras.
 3. ¿Cuántas muestras te da eso mientras la pieza pasa?
 - Me da aproximadamente 20 muestras mientras la pieza cruza frente al sensor.b
-## SEMANA 3 BLOQUE 1
+## SEMANA 3 
+### BLOQUE 1
 1. Las columnas exactas de tu datos.csv, con el nombre de cada una y qué guarda.
 - Tres
 2. Tus tres etiquetas, escritas tal como van a aparecer en el archivo (una palabra, minúsculas, sin acentos).
@@ -40,7 +44,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 - 11.2,mediano
 - 16.5,grande
 
-## SEMANA 3 BLOQUE 2
+## BLOQUE 2
 1. Cuántas ventanas por clase vas a capturar.
 - Capturaré 30 ventanas por cada clase, para un total de 90 ventanas. Las clases serán chico, mediano y grande.
 2. En qué orden.
@@ -50,7 +54,8 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 4. A qué distancia del sensor va a pasar la pieza.
 - Mantendré la pieza aproximadamente a 5 cm del sensor HC-SR04 durante el recorrido, utilizando una guía para mantener una posición constante.
 
-## SEMANA 4 BLOQUE 1
+## SEMANA 4 
+### BLOQUE 1
 1. Qué tipo de ruido ves en tu señal y de dónde crees que viene.
 - Se observa principalmente ruido aleatorio o pequeñas variaciones en la señal. Puede venir de cambios en la medición del sensor ultrasónico, objetos que reflejan el sonido, interferencias o pequeñas variaciones en el tiempo de lectura.
 2. Qué rango físico tiene tu sensor y qué valores estás descartando por imposibles.
