@@ -20,3 +20,6 @@ En el bloque 1 de la semana 3, la pregunta de las columnas de `datos.csv` quedó
 
 ### Nota rápida (2026-09-14) - s04
 Esto es más grave de lo que parece a primera vista: tu repositorio no tiene carpeta `datos/` (ni `datos.csv` ni nada), el mismo hueco que ya te había comentado la semana pasada. Tu `codigo/limpiar.py` está bien escrito (filtro por rango, media móvil por ventana con `groupby`, manejo correcto de los NaN de las orillas), pero como no existe `datos/datos.csv` no puede haberse ejecutado nunca sobre datos reales: por ahora es código de plantilla, no una limpieza real. Por eso no hay bloque 2 ni `datos_limpios.csv`, y el "Avance del proyecto" de tu bitácora no describe qué le hiciste a tu señal (solo menciona haber creado carpetas). Además `sensor.ino` sigue en `codigo/sensor/sensor.ino` en vez de `codigo/sensor.ino`, lo mismo que se comentó la semana pasada. Lo más urgente ahora es volver a la semana 3: capturar y subir tu `datos.csv` real, porque sin eso las semanas 4, 5 y 6 no tienen sobre qué trabajar.
+
+### Nota rápida (2026-09-21) - s05
+No veo commits de la semana 05 (`s05 bloque 1`/`s05 bloque 2`). Si tuviste un problema, cuéntamelo para que quede en la bitácora.
