@@ -17,9 +17,9 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 1. ¿Qué sensor vas a usar y qué tipo de salida tiene?
  - HC-SR04, sensor ultrasónico que tiene una salida digital, cuyo tiempo permite calcular la distancia.
 2. Tres líneas de ejemplo tal como se van a ver saliendo de tu Arduino, con valores plausibles para tu caso.
-  - Tiempo: 300 us   Distancia: 5.2 cm, Tamaño: Chico
-  - Tiempo: 600 us   Distancia: 10.4 cm, Tamaño: Mediano
-  - Tiempo: 1000 us  Distancia: 16.8 cm, Tamaño: Grande
+  -  300 , 5.2, Chico
+  -  600, 10.4, Mediano
+  -  1000, 16.8, Grande
 3. Por qué el Arduino no puede mandar Serial.println("Leyendo...").
  - El Arduino no puede mandar solo Serial.println("Leyendo...") porque el modelo necesita datos numéricos del sensor para poder analizar la distancia y clasificar la pieza como chica, mediana o grande.
 
