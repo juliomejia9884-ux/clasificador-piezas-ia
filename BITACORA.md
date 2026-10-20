@@ -73,6 +73,33 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 3. Al comparar antes y después, ¿se parecen más entre sí las ventanas de una misma clase?
 - Al comparar las gráficas antes y después de la limpieza, se observa que la señal procesada presenta menos variaciones bruscas y una forma más suavizada. Esto permite identificar mejor el comportamiento de la señal. Aunque se espera que las ventanas de una misma clase sean más consistentes después del procesamiento, sería necesario comparar varias ventanas de la misma clase para confirmarlo.
 
+## SEMANA 5 
+### BLOQUE 1
+
+| Característica | ¿Por qué debería distinguir mis clases? |
+|---|---|
+| Media | Permite conocer la distancia promedio detectada por el sensor durante el paso de cada pieza. |
+| Desviación estándar | Ayuda a identificar las variaciones de distancia que se producen durante la detección. |
+| Mínimo | Identifica la menor distancia registrada, que puede cambiar dependiendo del tamaño y posición de la pieza. |
+| Máximo | Permite conocer la distancia máxima registrada durante cada ventana. |
+| Rango | Mide la diferencia entre el valor máximo y mínimo, ayudando a comparar los cambios de distancia. |
+| Duración del evento | Permite conocer cuántas muestras permanece una pieza frente al sensor, lo que podría ayudar a distinguir piezas chicas, medianas y grandes. |
+
+### BLOQUE 2 
+
+## SEMANA 6
+### BLOQUE 1
+
+### BLOQUE 2 
+
+
+## SEMANA 7 
+### BLOQUE 1
+
+### BLOQUE 2 
+
+
+
 ### Avance del proyecto
 
 Se comenzo con todo lo que tenemos que ver para crear carpetas, guardarlas de forma segura, lo commit y guardar.
