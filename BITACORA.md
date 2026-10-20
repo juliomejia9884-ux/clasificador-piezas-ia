@@ -75,7 +75,6 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 
 ## SEMANA 5 
 ### BLOQUE 1
-
 | Característica | ¿Por qué debería distinguir mis clases? |
 |---|---|
 | Media | Permite conocer la distancia promedio detectada por el sensor durante el paso de cada pieza. |
@@ -86,6 +85,14 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 | Duración del evento | Permite conocer cuántas muestras permanece una pieza frente al sensor, lo que podría ayudar a distinguir piezas chicas, medianas y grandes. |
 
 ### BLOQUE 2 
+1. ¿Cuántas filas y cuántas columnas quedó tu features.csv, y por qué ese número de filas?
+- Mi archivo features.csv contiene 8 columnas y al menos 8 filas de datos. Cada fila representa una ventana capturada por el sensor ultrasónico y cada columna contiene una característica calculada o su identificación. En la gráfica se observan 8 puntos de la clase grande. Para confirmar el número exacto de filas, es necesario revisar el archivo CSV.
+
+2. ¿Qué par de características separa mejor tus clases, con la gráfica que lo muestra?
+- Seleccioné las características de rango y duración del evento, representadas en la gráfica features.png. Se observan diferencias entre las mediciones de las piezas grandes, pero todavía no puedo determinar si estas características separan correctamente las tres clases, porque únicamente aparecen datos de la clase grande.
+
+3. Si hay dos clases que se encimen, ¿cuáles y qué vas a hacer?
+- Por el momento no puedo identificar qué clases se enciman, ya que la gráfica solamente muestra la clase grande. Para comprobarlo, necesito capturar y procesar también las piezas chicas y medianas. Después compararé sus características y, si existe un traslape, revisaré el umbral de detección y otras características que permitan diferenciarlas mejor.
 
 ## SEMANA 6
 ### BLOQUE 1
