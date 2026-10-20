@@ -22,5 +22,5 @@ void loop() {
   float distancia = tiempo * 0.0343 / 2.0;
   // Enviar SOLO el numero
   Serial.println(distancia);
-  delay(10);
+  delay(100);
 }

@@ -64,7 +64,14 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 - Elegí un filtro de media móvil de 5 muestras porque permite reducir el ruido de la señal sin afectar demasiado los cambios del evento. El tamaño del filtro es pequeño en comparación con la duración del evento, por lo que conserva sus características principales.
 
 ### BLOQUE 2
+1. ¿Cuánto se movió tu línea base entre la primera y la última ventana de la sesión?
+- En la gráfica de la ventana 0 se observa que la señal original comienza aproximadamente en 28 cm y presenta variaciones durante la captura. Después de aplicar el filtrado y la corrección de línea base, se reducen las variaciones de la señal. Sin embargo, para determinar cuánto se movió la línea base entre la primera y la última ventana, es necesario comparar ambas capturas, ya que la gráfica únicamente muestra la ventana 0.
 
+2. ¿Qué normalización elegiste y por qué?
+- Elegí la normalización Min-Max, porque permite transformar los valores de la señal a un rango de 0 a 1. Esto facilita la comparación de las mediciones del sensor ultrasónico y permite trabajar con datos en una escala uniforme, lo que será útil para el entrenamiento del modelo de inteligencia artificial.
+
+3. Al comparar antes y después, ¿se parecen más entre sí las ventanas de una misma clase?
+- Al comparar las gráficas antes y después de la limpieza, se observa que la señal procesada presenta menos variaciones bruscas y una forma más suavizada. Esto permite identificar mejor el comportamiento de la señal. Aunque se espera que las ventanas de una misma clase sean más consistentes después del procesamiento, sería necesario comparar varias ventanas de la misma clase para confirmarlo.
 
 ### Avance del proyecto
 
