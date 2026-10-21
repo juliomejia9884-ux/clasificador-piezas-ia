@@ -84,7 +84,7 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 | Rango | Mide la diferencia entre el valor máximo y mínimo, ayudando a comparar los cambios de distancia. |
 | Duración del evento | Permite conocer cuántas muestras permanece una pieza frente al sensor, lo que podría ayudar a distinguir piezas chicas, medianas y grandes. |
 
-### BLOQUE 2 
+### BLOQUE 2  
 1. ¿Cuántas filas y cuántas columnas quedó tu features.csv, y por qué ese número de filas?
 - Mi archivo features.csv contiene 8 columnas y al menos 8 filas de datos. Cada fila representa una ventana capturada por el sensor ultrasónico y cada columna contiene una característica calculada o su identificación. En la gráfica se observan 8 puntos de la clase grande. Para confirmar el número exacto de filas, es necesario revisar el archivo CSV.
 
@@ -96,6 +96,24 @@ Comenzamos con la planeacion de todo lo que haremos y se instalaron las cosas ne
 
 ## SEMANA 6
 ### BLOQUE 1
+### Semana 6 - Características en el dominio de la frecuencia
+
+### Antes de la clase
+1. Frecuencia de muestreo (fs)
+- Se utiliza un sensor ultrasónico conectado a Arduino. El programa contiene un retardo de 100 milisegundos entre mediciones, por lo que se estima una frecuencia de muestreo máxima aproximada de 10 Hz. La frecuencia real puede ser menor debido al tiempo que tarda el sensor en realizar cada medición.
+
+2. Frecuencia de Nyquist
+- La frecuencia de Nyquist se calcula dividiendo la frecuencia de muestreo entre dos.
+fN = 10 / 2 = 5 Hz
+Se obtiene un valor aproximado máximo de 5 Hz. Esto significa que las frecuencias superiores a ese límite no pueden representarse correctamente con dicho muestreo y pueden producir aliasing.
+
+3. Resolución en frecuencia
+- Se identificaron 8 ventanas con un promedio de 194.875 muestras por ventana. Para el cálculo se utiliza un tamaño representativo de 195 muestras.
+Δf = 10 / 195 = 0.0513 Hz
+La resolución estimada es de aproximadamente 0.0513 Hz. Este resultado deberá verificarse con la frecuencia de muestreo real.
+
+4. Predicción sobre la separación de clases
+- Considero que las características en frecuencia podrían aportar información adicional para distinguir los diferentes tipos de piezas. Sin embargo, debido a que el sensor ultrasónico mide principalmente cambios de distancia durante el paso de las piezas, es posible que las características del dominio del tiempo sean más útiles. Esto se comprobará mediante el análisis de los espectros.
 
 ### BLOQUE 2 
 
