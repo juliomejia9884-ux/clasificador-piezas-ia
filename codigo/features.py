@@ -1,6 +1,6 @@
 
-# features.py - Semana 5
-# Extraccion de caracteristicas en el dominio del tiempo
+# features.py - Semana 6
+# Extraccion de caracteristicas en el dominio del tiempo y frecuencia
 
 import pandas as pd
 import numpy as np
@@ -33,6 +33,16 @@ ARCHIVO_GRAFICA = os.path.join(
     CARPETA_FIGURAS, "features.png"
 )
 
+ARCHIVO_ESPECTRO = os.path.join(
+    CARPETA_FIGURAS, "espectro.png"
+)
+
+# ==========================================
+# FRECUENCIA DE MUESTREO
+# ==========================================
+
+FS = 100.0  # Frecuencia de muestreo en Hz
+
 # ==========================================
 # CARGAR DATOS LIMPIOS
 # ==========================================
@@ -60,10 +70,9 @@ if datos.empty:
     raise ValueError("No hay datos para procesar.")
 
 # ==========================================
-# TODO 1: DURACION DEL EVENTO
+# EXTRACCION DE CARACTERISTICAS
 # ==========================================
 
-# Umbral provisional de 5 cm
 UMBRAL = 5.0
 
 filas = []
@@ -79,7 +88,7 @@ for ventana, g in datos.groupby("ventana"):
     duracion = np.sum(np.abs(x) > UMBRAL)
 
     # ======================================
-    # TODO 2: SELECCION DE CARACTERISTICAS
+    # CARACTERISTICAS DEL DOMINIO DEL TIEMPO
     # ======================================
 
     fila = {
@@ -93,6 +102,63 @@ for ventana, g in datos.groupby("ventana"):
         "etiqueta": etiqueta
     }
 
+    # ======================================
+    # CARACTERISTICAS DEL DOMINIO DE FRECUENCIA
+    # ======================================
+
+    espectro = np.abs(np.fft.rfft(x))[1:]
+
+    frecuencias = np.fft.rfftfreq(
+        len(x), 1/FS
+    )[1:]
+
+    # Frecuencia dominante
+    if len(espectro) > 0 and np.sum(espectro) > 0:
+
+        f_dominante = frecuencias[
+            np.argmax(espectro)
+        ]
+
+        centroide = (
+            np.sum(frecuencias * espectro)
+            / np.sum(espectro)
+        )
+
+    else:
+        f_dominante = 0
+        centroide = 0
+
+    fila["f_dominante"] = f_dominante
+
+    fila["centroide"] = centroide
+
+    # Energia espectral total
+    fila["energia_total"] = np.sum(espectro**2)
+
+    # Energia de banda baja: 0 a 10 Hz
+    fila["banda_baja"] = np.sum(
+        espectro[
+            (frecuencias >= 0) &
+            (frecuencias < 10)
+        ]**2
+    )
+
+    # Energia de banda media: 10 a 25 Hz
+    fila["banda_media"] = np.sum(
+        espectro[
+            (frecuencias >= 10) &
+            (frecuencias < 25)
+        ]**2
+    )
+
+    # Energia de banda alta: 25 a 50 Hz
+    fila["banda_alta"] = np.sum(
+        espectro[
+            (frecuencias >= 25) &
+            (frecuencias <= 50)
+        ]**2
+    )
+
     filas.append(fila)
 
 # ==========================================
@@ -102,7 +168,7 @@ for ventana, g in datos.groupby("ventana"):
 features = pd.DataFrame(filas)
 
 # ==========================================
-# TODO 3: GUARDAR FEATURES.CSV
+# GUARDAR FEATURES.CSV
 # ==========================================
 
 features.to_csv(ARCHIVO_SALIDA, index=False)
@@ -121,12 +187,13 @@ print("\nArchivo guardado en:")
 print(ARCHIVO_SALIDA)
 
 # ==========================================
-# TODO 4: GENERAR GRAFICA DE CARACTERISTICAS
+# GRAFICA DE CARACTERISTICAS
 # ==========================================
 
 plt.figure(figsize=(10, 6))
 
 for etiqueta, g in features.groupby("etiqueta"):
+
     plt.scatter(
         g["rango"],
         g["duracion"],
@@ -147,7 +214,6 @@ plt.grid(True, alpha=0.3)
 
 plt.tight_layout()
 
-# Guardar grafica
 plt.savefig(
     ARCHIVO_GRAFICA,
     dpi=300,
@@ -157,7 +223,58 @@ plt.savefig(
 print("\nGrafica guardada en:")
 print(ARCHIVO_GRAFICA)
 
-# Mostrar grafica
+# ==========================================
+# GRAFICA DE ESPECTROS POR CLASE
+# ==========================================
+
+plt.figure(figsize=(10, 6))
+
+for etiqueta, g_clase in datos.groupby("etiqueta"):
+
+    ventana_elegida = g_clase["ventana"].iloc[0]
+
+    g = g_clase[
+        g_clase["ventana"] == ventana_elegida
+    ].sort_values("t")
+
+    x = g[COLUMNA].to_numpy(dtype=float)
+
+    espectro = np.abs(np.fft.rfft(x))[1:]
+
+    frecuencias = np.fft.rfftfreq(
+        len(x), 1/FS
+    )[1:]
+
+    plt.plot(
+        frecuencias,
+        espectro,
+        label=f"{etiqueta}",
+        linewidth=1.5
+    )
+
+plt.title("Espectro de frecuencia por clase")
+
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Magnitud")
+
+plt.legend(title="Tipo de pieza")
+plt.grid(True, alpha=0.3)
+
+plt.tight_layout()
+
+plt.savefig(
+    ARCHIVO_ESPECTRO,
+    dpi=300,
+    bbox_inches="tight"
+)
+
+print("\nEspectro guardado en:")
+print(ARCHIVO_ESPECTRO)
+
+# ==========================================
+# MOSTRAR GRAFICAS
+# ==========================================
+
 plt.show()
 
 print("\nProceso completado correctamente.")

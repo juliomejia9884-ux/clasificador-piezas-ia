@@ -116,7 +116,17 @@ La resolución estimada es de aproximadamente 0.0513 Hz. Este resultado deberá 
 - Considero que las características en frecuencia podrían aportar información adicional para distinguir los diferentes tipos de piezas. Sin embargo, debido a que el sensor ultrasónico mide principalmente cambios de distancia durante el paso de las piezas, es posible que las características del dominio del tiempo sean más útiles. Esto se comprobará mediante el análisis de los espectros.
 
 ### BLOQUE 2 
-
+1. Frecuencia dominante y sentido físico
+- La frecuencia dominante representa la frecuencia en la que se presenta la mayor magnitud de la señal del sensor HC-SR04. En este proyecto, la frecuencia dominante permite identificar las principales variaciones que ocurren cuando una pieza pasa frente al sensor.
+Debido a que el proceso de detección es relativamente lento, se espera que las frecuencias dominantes sean bajas. Esto tiene sentido físico porque el sensor detecta cambios de distancia conforme las piezas pasan frente a él, en lugar de medir vibraciones de alta frecuencia.
+2. ¿Las características de frecuencia separan las clases?
+- Las características espectrales permiten analizar el comportamiento de la señal para las tres clases: chico, mediano y grande.
+Sin embargo, estas características no necesariamente permiten distinguir las clases por sí solas, ya que el sensor HC-SR04 mide principalmente cambios de distancia y no las dimensiones directamente mediante frecuencias.
+Para comprobarlo, se utiliza la gráfica espectro.png, donde se comparan las frecuencias de una ventana de cada clase. Si los espectros presentan formas y magnitudes similares, significa que las características de frecuencia no ofrecen una separación clara entre las piezas.
+3. Decisión final
+- Por el momento, se conservarán las características espectrales para realizar las pruebas de comparación con las características del dominio del tiempo.
+Sin embargo, si después de analizar las gráficas se observa que no existe una diferencia importante entre las clases, se eliminarán de features.csv, ya que no estarían aportando información útil para mejorar la clasificación.
+Se dará prioridad a las características que permitan distinguir correctamente las piezas chicas, medianas y grandes.
 
 ## SEMANA 7 
 ### BLOQUE 1
