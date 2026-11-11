@@ -131,6 +131,21 @@ Se dará prioridad a las características que permitan distinguir correctamente 
 ## SEMANA 7 
 ### BLOQUE 1
 
+1. ¿Con cuántos ejemplos voy a entrenar y con cuántos voy a probar?**
+- Actualmente mi dataset cuenta con 114 ventanas. Voy a utilizar aproximadamente el 80% de los datos para entrenar el modelo y el 20% para probarlo.
+- Datos de entrenamiento: 91 ventanas.
+- Datos de prueba: 23 ventanas.
+
+De esta manera, el modelo podrá aprender con la mayoría de los ejemplos y después comprobaré qué tan bien clasifica datos que no ha visto anteriormente.
+
+2. ¿Qué algoritmo elijo para empezar y por qué?**
+
+- Para comenzar voy a utilizar un árbol de decisión (Decision Tree), porque es un algoritmo sencillo de entender y permite clasificar mis piezas de acuerdo con sus características. En mi proyecto necesito distinguir tres tamaños: chico, mediano y grande. Además, puedo observar las decisiones que toma el modelo para realizar la clasificación.
+
+3. ¿Por qué un modelo que acierta 100% en los datos de entrenamiento puede ser inútil?**
+
+- Porque puede estar memorizando los datos con los que fue entrenado en lugar de aprender a identificar correctamente las características de cada clase. Esto provoca que cuando recibe datos nuevos pueda equivocarse. Por eso es importante probar el modelo con datos que no haya utilizado durante el entrenamiento.
+
 ### BLOQUE 2 
 
 
