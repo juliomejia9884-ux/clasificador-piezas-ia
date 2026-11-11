@@ -131,24 +131,30 @@ Se dará prioridad a las características que permitan distinguir correctamente 
 ## SEMANA 7 
 ### BLOQUE 1
 
-1. ¿Con cuántos ejemplos voy a entrenar y con cuántos voy a probar?**
+**1. ¿Con cuántos ejemplos voy a entrenar y con cuántos voy a probar?**
 - Actualmente mi dataset cuenta con 114 ventanas. Voy a utilizar aproximadamente el 80% de los datos para entrenar el modelo y el 20% para probarlo.
 - Datos de entrenamiento: 91 ventanas.
 - Datos de prueba: 23 ventanas.
-
 De esta manera, el modelo podrá aprender con la mayoría de los ejemplos y después comprobaré qué tan bien clasifica datos que no ha visto anteriormente.
 
-2. ¿Qué algoritmo elijo para empezar y por qué?**
-
+**2. ¿Qué algoritmo elijo para empezar y por qué?**
 - Para comenzar voy a utilizar un árbol de decisión (Decision Tree), porque es un algoritmo sencillo de entender y permite clasificar mis piezas de acuerdo con sus características. En mi proyecto necesito distinguir tres tamaños: chico, mediano y grande. Además, puedo observar las decisiones que toma el modelo para realizar la clasificación.
 
-3. ¿Por qué un modelo que acierta 100% en los datos de entrenamiento puede ser inútil?**
-
+**3. ¿Por qué un modelo que acierta 100% en los datos de entrenamiento puede ser inútil?**
 - Porque puede estar memorizando los datos con los que fue entrenado en lugar de aprender a identificar correctamente las características de cada clase. Esto provoca que cuando recibe datos nuevos pueda equivocarse. Por eso es importante probar el modelo con datos que no haya utilizado durante el entrenamiento.
 
 ### BLOQUE 2 
+**1. ¿Cuál fue mi exactitud en el conjunto de prueba?**
 
+- Mi modelo KNN obtuvo una exactitud del 56.52% en el conjunto de prueba. Esto significa que clasificó correctamente 13 de las 23 muestras evaluadas. El resultado indica que todavía hay aspectos que se pueden mejorar para conseguir una clasificación más precisa.
 
+**2. ¿Qué par de clases se confunde más?**
+
+- Las clases que más se confunden son chico y grande. En la matriz de confusión se observa que algunas piezas grandes fueron clasificadas como chicas y también algunas piezas chicas fueron clasificadas como grandes. Esto puede deberse a que sus características no tienen una separación suficientemente clara para el modelo.
+
+**3. ¿El resultado coincidió con lo que predije en la semana 6?**
+
+- Los resultados muestran que existe dificultad para separar correctamente algunas clases. Esto permite relacionar el comportamiento del modelo con el análisis de las características realizado en la semana 6. También me permite identificar que necesito mejorar la separación de las clases para conseguir mejores resultados en la clasificación.
 
 ### Avance del proyecto
 
