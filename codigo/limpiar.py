@@ -1,7 +1,7 @@
 
 # limpiar.py - Semana 4
-# Limpieza, filtrado, corrección de línea base,
-# normalización y generación de gráfica.
+# Limpieza, filtrado, correccion de linea base,
+# normalizacion y generacion de grafica.
 
 import os
 import pandas as pd
@@ -34,7 +34,7 @@ ARCHIVO_GRAFICA = os.path.join(
 )
 
 # ==========================================
-# CARGAR DATOS ORIGINALES
+# CARGAR DATOS
 # ==========================================
 
 if not os.path.exists(ARCHIVO_ENTRADA):
@@ -60,17 +60,19 @@ datos = datos.dropna(subset=columnas).copy()
 datos = datos.sort_values(["ventana", "t"])
 
 if datos.empty:
-    raise ValueError("El archivo no contiene muestras validas.")
+    raise ValueError("No hay muestras validas.")
 
 originales = datos.copy()
 
+ventanas_originales = datos["ventana"].nunique()
+
 print("Muestras originales:", len(datos))
+print("Ventanas originales:", ventanas_originales)
 
 # ==========================================
 # TODO 1: ELIMINAR VALORES ATIPICOS
 # ==========================================
 
-# Ajustar al rango real del sensor ultrasonico
 DIST_MIN = 2
 DIST_MAX = 400
 
@@ -80,11 +82,6 @@ datos = datos[
 ].copy()
 
 print("Muestras dentro del rango:", len(datos))
-
-if datos.empty:
-    raise ValueError(
-        "No quedaron muestras dentro del rango fisico."
-    )
 
 # ==========================================
 # TODO 2: FILTRO DE MEDIA MOVIL
@@ -97,75 +94,99 @@ datos["valor_filtrado"] = (
     .transform(
         lambda serie: serie.rolling(
             window=TAMANO_FILTRO,
-            center=True
+            center=True,
+            min_periods=1
         ).mean()
     )
 )
 
 # ==========================================
-# TODO 3: ELIMINAR NaN DE LAS ORILLAS
+# TODO 3: CORREGIR LINEA BASE
 # ==========================================
 
-datos = datos.dropna(
-    subset=["valor_filtrado"]
-).copy()
-
-if datos.empty:
-    raise ValueError(
-        "No quedaron muestras despues del filtro."
-    )
-
-# ==========================================
-# TODO 4: CORREGIR LINEA BASE
-# ==========================================
-
-# Primeras 20 muestras de cada ventana
 N_BASE = 20
 
-base = (
-    datos[datos["t"] < N_BASE]
-    .groupby("ventana")["valor_filtrado"]
-    .mean()
+def calcular_base(grupo):
+
+    primeras = grupo[
+        grupo["t"] < N_BASE
+    ]["valor_filtrado"]
+
+    # Si no hay muestras en las primeras 20,
+    # utilizar la media de la ventana disponible.
+    if primeras.empty:
+        return grupo["valor_filtrado"].mean()
+
+    return primeras.mean()
+
+
+base = datos.groupby("ventana").apply(
+    calcular_base,
+    include_groups=False
 )
 
 datos["linea_base"] = datos["ventana"].map(base)
-
-datos = datos.dropna(subset=["linea_base"]).copy()
 
 datos["valor_corregido"] = (
     datos["valor_filtrado"] - datos["linea_base"]
 )
 
 # ==========================================
-# TODO 5: NORMALIZACION MIN-MAX
+# TODO 4: NORMALIZACION MIN-MAX
 # ==========================================
 
-minimo = datos["valor_corregido"].min()
-maximo = datos["valor_corregido"].max()
+def normalizar(grupo):
 
-if maximo > minimo:
-    datos["valor_normalizado"] = (
-        (datos["valor_corregido"] - minimo) /
-        (maximo - minimo)
+    minimo = grupo["valor_corregido"].min()
+    maximo = grupo["valor_corregido"].max()
+
+    if maximo > minimo:
+        return (
+            (grupo["valor_corregido"] - minimo) /
+            (maximo - minimo)
+        )
+
+    return pd.Series(
+        0.0,
+        index=grupo.index
     )
-else:
-    datos["valor_normalizado"] = 0.0
+
+
+datos["valor_normalizado"] = (
+    datos.groupby("ventana", group_keys=False)
+    .apply(normalizar, include_groups=False)
+    .reset_index(level=0, drop=True)
+)
 
 # ==========================================
 # GUARDAR DATASET LIMPIO
 # ==========================================
 
+datos = datos.sort_values(["ventana", "t"])
+
 datos.to_csv(ARCHIVO_SALIDA, index=False)
 
-print("\nLimpieza terminada.")
+ventanas_finales = datos["ventana"].nunique()
+
+print("\n========== RESULTADOS ==========")
+print("Ventanas originales:", ventanas_originales)
+print("Ventanas finales:", ventanas_finales)
 print("Muestras finales:", len(datos))
-print("Archivo CSV:", ARCHIVO_SALIDA)
+
+print("\nVentanas por etiqueta:")
+print(
+    datos.groupby("etiqueta")["ventana"].nunique()
+)
+
+print("\nArchivo guardado:", ARCHIVO_SALIDA)
+
+if ventanas_originales != ventanas_finales:
+    print("ADVERTENCIA: Algunas ventanas no tienen muestras validas.")
 
 # ==========================================
-# TODO 6: CREAR FIGURA DE LIMPIEZA
+# TODO 5: GRAFICA DE LIMPIEZA
 # ==========================================
 
-# Seleccionar una ventana representativa
 ventana_id = datos["ventana"].iloc[0]
 
 antes = originales[
@@ -176,11 +197,8 @@ despues = datos[
     datos["ventana"] == ventana_id
 ]
 
-fig, ejes = plt.subplots(
-    2, 1, figsize=(11, 8)
-)
+fig, ejes = plt.subplots(2, 1, figsize=(11, 8))
 
-# Grafica original
 ejes[0].plot(
     antes["t"],
     antes["valor"],
@@ -196,7 +214,6 @@ ejes[0].set_ylabel("Distancia (cm)")
 ejes[0].legend()
 ejes[0].grid(True)
 
-# Grafica despues de limpieza
 ejes[1].plot(
     despues["t"],
     despues["valor_normalizado"],
@@ -218,16 +235,14 @@ plt.suptitle(
 
 plt.tight_layout()
 
-# Guardar la imagen automaticamente
 plt.savefig(
     ARCHIVO_GRAFICA,
     dpi=300,
     bbox_inches="tight"
 )
 
-print("Grafica guardada:", ARCHIVO_GRAFICA)
+print("\nGrafica guardada:", ARCHIVO_GRAFICA)
 
-# Mostrar la grafica
 plt.show()
 
 print("\nProceso completado correctamente.")
