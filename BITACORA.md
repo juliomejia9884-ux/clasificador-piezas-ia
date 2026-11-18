@@ -155,9 +155,23 @@ De esta manera, el modelo podrá aprender con la mayoría de los ejemplos y desp
 **3. ¿El resultado coincidió con lo que predije en la semana 6?**
 
 - Los resultados muestran que existe dificultad para separar correctamente algunas clases. Esto permite relacionar el comportamiento del modelo con el análisis de las características realizado en la semana 6. También me permite identificar que necesito mejorar la separación de las clases para conseguir mejores resultados en la clasificación.
+## SEMANA 8
+### BLOQUE 1
+### BLOQUE 2
+
+## SEMANA 10
+### BLOQUE 1
+1. ¿Cuántas características tiene tu features.csv y por qué eso es difícil de visualizar?
+- Mi archivo features.csv contiene varias características extraídas de las señales del sensor. En la gráfica se comparan dos de ellas: el rango y la duración del evento. Es difícil visualizar todas las características al mismo tiempo porque se necesitarían más dimensiones para representarlas, por eso se utilizan gráficas que permiten comparar algunas de ellas.
+2. ¿Qué le pasaría a tu sistema actual si por la banda pasara un objeto que no es ninguna de tus tres clases?
+- El modelo lo clasificaría como una de las tres clases que conoce: chico, mediano o grande, aunque el objeto no pertenezca a ninguna. Esto sucede porque el modelo solamente fue entrenado para reconocer esas tres categorías.
+3. Con tus palabras, ¿qué busca PCA?
+- PCA busca reducir la cantidad de características de los datos, conservando la mayor cantidad de información posible. Esto permite representar los datos de una manera más sencilla, visualizar mejor su distribución y observar qué tan separadas están las diferentes clases.
+
+### BLOQUE 2
+
 
 ### Avance del proyecto
-
 Se comenzo con todo lo que tenemos que ver para crear carpetas, guardarlas de forma segura, lo commit y guardar.
 
 Prueba agregar
