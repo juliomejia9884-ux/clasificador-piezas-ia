@@ -176,6 +176,24 @@ De esta manera, el modelo podrá aprender con la mayoría de los ejemplos y desp
 3. ¿Viste algún punto atípico, cuál ventana era y qué encontraste al graficar su señal?
 - En la gráfica se observan algunos puntos alejados de la mayoría, que podrían ser datos atípicos. Sin embargo, no se puede identificar el número de ventana ni conocer cómo era su señal solamente con esta gráfica.
 
+## SEMANA 11
+### BLOQUE 1
+1. Tabla cruzada
+
+- col_0   0   1   2
+- etiqueta
+- chico      11  27   1
+- grande     14   9  15
+- mediana    10  23   5
+
+
+2. ¿K-Means encontró tus clases o no, y qué te dice eso de tu problema?
+- K-Means no logró identificar correctamente las tres clases de piezas, ya que los grupos generados contienen diferentes tamaños. Aunque se observa que el grupo 2 concentra principalmente piezas grandes, los grupos 0 y 1 mezclan piezas chicas, medianas y grandes. Esto demuestra que algunas características de las señales son similares entre los distintos tamaños, por lo que no existe una separación clara entre todas las clases. 
+
+3. Si no las encontró: ¿qué crees que separó en su lugar?
+- K-Means agrupó las muestras de acuerdo con la similitud de sus características numéricas, como el rango, la duración del evento y las demás características extraídas de las señales del sensor. Es decir, identificó patrones de comportamiento similares entre las mediciones, pero estos patrones no necesariamente corresponden al tamaño real de las piezas. Esto indica que las características utilizadas no representan por completo las diferencias entre las tres categorías.
+
+
 ### Avance del proyecto
 Se comenzo con todo lo que tenemos que ver para crear carpetas, guardarlas de forma segura, lo commit y guardar.
 
