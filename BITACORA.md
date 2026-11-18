@@ -169,7 +169,12 @@ De esta manera, el modelo podrá aprender con la mayoría de los ejemplos y desp
 - PCA busca reducir la cantidad de características de los datos, conservando la mayor cantidad de información posible. Esto permite representar los datos de una manera más sencilla, visualizar mejor su distribución y observar qué tan separadas están las diferentes clases.
 
 ### BLOQUE 2
-
+1. ¿Qué porcentaje de varianza explican tus dos primeras componentes?
+- Las dos primeras componentes explican un total de 62.78% de la varianza. La primera componente (PC1) explica el 38.50% y la segunda (PC2) explica el 24.28%. Esto significa que podemos representar una buena parte de la información de los datos utilizando solamente dos dimensiones.
+2. ¿Si tus clases se separan solas en el plano de PCA, y qué significa que sí o que no?
+- Mis clases no se separan completamente en el plano de PCA, ya que algunos puntos de las categorías chico, mediana y grande se encuentran mezclados. Esto significa que las características tienen algunas similitudes entre las clases y que no es posible distinguirlas completamente utilizando solamente las dos primeras componentes.
+3. ¿Viste algún punto atípico, cuál ventana era y qué encontraste al graficar su señal?
+- En la gráfica se observan algunos puntos alejados de la mayoría, que podrían ser datos atípicos. Sin embargo, no se puede identificar el número de ventana ni conocer cómo era su señal solamente con esta gráfica.
 
 ### Avance del proyecto
 Se comenzo con todo lo que tenemos que ver para crear carpetas, guardarlas de forma segura, lo commit y guardar.
